@@ -1,0 +1,7 @@
+
+/impl/
+
+/src/ip_core/*/temp/
+/src/ip_core/*/*.v
+/src/ip_core/*/*.vo
+/src/ip_core/*/*.mod
