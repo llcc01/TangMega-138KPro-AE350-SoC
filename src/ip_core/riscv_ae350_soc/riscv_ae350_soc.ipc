@@ -2,7 +2,7 @@
 ipc_version=4
 file=riscv_ae350_soc
 module=RiscV_AE350_SOC_Top
-target_device=gw5ast138b-002
+target_device=gw5ast138b-007
 type=riscv_ae350_soc
 version=1.0
 
@@ -34,3 +34,7 @@ ITCM_Initialization_AbsolutePath=D:/Gowin/Gowin_V1.9.9.03_x64/IDE/ipcore/RiscV_A
 SpiFlashInstructionMemory=true
 createin_path=C:\\Users\\liukai\\Desktop\\ae350_soc\\src\\riscv_ae350_soc
 defaultDDR3Setttings=true
+ENABLE_SPI=true
+ENABLE_SPI2_IO_PORTS=true
+ENABLE_EXTENDED_AHB_SLAVE=true
+ENABLE_PLIC=true

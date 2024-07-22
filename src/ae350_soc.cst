@@ -28,6 +28,24 @@ IO_LOC "TRST_IN"    P21;    //7  p10
 IO_LOC "TDO_OUT"    U17;    //8  p11
 IO_LOC "TDI_IN"     P23;    //9  p12
 
+//Ethernet : RGMII
+IO_LOC "PHY_CLK" 		E18;
+IO_LOC "PHY_RST_N"  	E17;
+IO_LOC "RGMII_TXC"      H24;
+IO_LOC "RGMII_TX_CTL"   J24;
+IO_LOC "RGMII_TXD[0]"   K21;
+IO_LOC "RGMII_TXD[1]"   J21;
+IO_LOC "RGMII_TXD[2]"   L19;
+IO_LOC "RGMII_TXD[3]"   K18;
+IO_LOC "RGMII_RXC"      C23;
+IO_LOC "RGMII_RX_CTL"   C22;
+IO_LOC "RGMII_RXD[0]"   B26;
+IO_LOC "RGMII_RXD[1]"   C26;
+IO_LOC "RGMII_RXD[2]"   D26;
+IO_LOC "RGMII_RXD[3]"   E26;
+IO_LOC "MDC"            K23;
+IO_LOC "MDIO"           K22;
+
 //SPI-Flash Memory
 IO_LOC "FLASH_SPI_CSN"    P18;
 IO_LOC "FLASH_SPI_CLK"    H13;
@@ -132,6 +150,6 @@ IO_PORT "DDR3_CS_N"      IO_TYPE=SSTL15 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=1.5;
 INS_LOC "u_RiscV_AE350_SOC_Top/u_RiscV_AE350_SOC/u_riscv_ae350_ddr3_top/u_ddr3_memory_ahb_top/u_ddr3/gw3_top/u_ddr_phy_top/u_dll" DDRDLLM_BL;
 INS_LOC "u_RiscV_AE350_SOC_Top/u_RiscV_AE350_SOC/u_riscv_ae350_ddr3_top/u_ddr3_memory_ahb_top/u_ddr3/gw3_top/u_ddr_phy_top/fclkdiv" LEFTSIDE[4];
 SET_PARAM "u_RiscV_AE350_SOC_Top/u_RiscV_AE350_SOC/u_riscv_ae350_ddr3_top/u_ddr3_memory_ahb_top/u_ddr3/gw3_top/u_ddr_phy_top/u_dll" CLKIN_SEL=CLKIN5;
-INS_LOC "u_Gowin_PLL_DDR3/PLL_inst" PLL_L[0]
+INS_LOC "u_Gowin_PLL/PLL_inst" PLL_L[0]
 
 INS_LOC "u_Gowin_PLL_AE350/PLL_inst" PLL_R[0]

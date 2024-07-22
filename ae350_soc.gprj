@@ -6,9 +6,12 @@
     <Device name="GW5AST-138B" pn="GW5AST-LV138FPG676AC1/I0">gw5ast138b-007</Device>
     <FileList>
         <File path="src/ae350_soc.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/gw_ahb_ethernet.v" type="file.verilog" enable="1"/>
+        <File path="src/eth/gw_ahb_ethernet_top.v" type="file.verilog" enable="1"/>
+        <File path="src/ip_core/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
         <File path="src/ip_core/gowin_pll_ae350/gowin_pll_ae350.v" type="file.verilog" enable="1"/>
-        <File path="src/ip_core/gowin_pll_ddr3/gowin_pll_ddr3.v" type="file.verilog" enable="1"/>
         <File path="src/ip_core/riscv_ae350_soc/riscv_ae350_soc.v" type="file.verilog" enable="1"/>
+        <File path="src/ip_core/triple_speed_ethernet_mac/triple_speed_ethernet_mac.v" type="file.verilog" enable="1"/>
         <File path="src/key_debounce.v" type="file.verilog" enable="1"/>
         <File path="src/ae350_soc.cst" type="file.cst" enable="1"/>
         <File path="src/ae350_soc.sdc" type="file.sdc" enable="1"/>
