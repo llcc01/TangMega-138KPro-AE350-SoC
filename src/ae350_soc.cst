@@ -17,6 +17,10 @@ IO_LOC "KEY[0]" K16;        //S0
 IO_LOC "KEY[1]" F15;        //S1
 IO_LOC "KEY[2]" G15;        //S2
 
+//UART1
+IO_LOC "UART1_TXD" P15;
+IO_LOC "UART1_RXD" N16;
+
 //UART2
 IO_LOC "UART2_TXD" W20;     //35
 IO_LOC "UART2_RXD" Y20;     //36

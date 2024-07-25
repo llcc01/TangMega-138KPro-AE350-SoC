@@ -8,6 +8,9 @@ module ae350_soc_top
     inout [2:0] LED,     // 2:0
     inout [2:0] KEY,     // 5:3
     // UART2
+    output UART1_TXD,
+    input  UART1_RXD,
+    // UART2
     output UART2_TXD,
     input  UART2_RXD,
     // SPI Flash Memory
@@ -364,6 +367,18 @@ RiscV_AE350_SOC_Top u_RiscV_AE350_SOC_Top
     .EXTS_HWRITE(EXTS_HWRITE),
     .EXTS_HCLK(EXTS_HCLK),
     .EXTS_HRSTN(EXTS_HRSTN),
+
+    .UART1_TXD(UART1_TXD),
+    .UART1_RTSN(),
+    .UART1_RXD(UART1_RXD),
+    .UART1_CTSN(),
+    .UART1_DSRN(),
+    .UART1_DCDN(),
+    .UART1_RIN(),
+    .UART1_DTRN(),
+    .UART1_OUT1N(),
+    .UART1_OUT2N(),
+
 
     .UART2_TXD(UART2_TXD),
     .UART2_RTSN(),
