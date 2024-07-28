@@ -32,6 +32,12 @@ IO_LOC "TRST_IN"    P21;    //7  p10
 IO_LOC "TDO_OUT"    U17;    //8  p11
 IO_LOC "TDI_IN"     P23;    //9  p12
 
+//SD
+IO_LOC "SD_CLK"         D23;    //SD_CLK
+IO_LOC "SD_CS"          B25;    //SD_CD/D3
+IO_LOC "SD_DATAOUT"      H23;    //SD_D0
+IO_LOC "SD_DATAIN"     D24;    //SD_CMD
+
 //Ethernet : RGMII
 IO_LOC "PHY_CLK" 		E18;
 IO_LOC "PHY_RST_N"  	E17;
@@ -154,6 +160,7 @@ IO_PORT "DDR3_CS_N"      IO_TYPE=SSTL15 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=1.5;
 INS_LOC "u_RiscV_AE350_SOC_Top/u_RiscV_AE350_SOC/u_riscv_ae350_ddr3_top/u_ddr3_memory_ahb_top/u_ddr3/gw3_top/u_ddr_phy_top/u_dll" DDRDLLM_BL;
 INS_LOC "u_RiscV_AE350_SOC_Top/u_RiscV_AE350_SOC/u_riscv_ae350_ddr3_top/u_ddr3_memory_ahb_top/u_ddr3/gw3_top/u_ddr_phy_top/fclkdiv" LEFTSIDE[4];
 SET_PARAM "u_RiscV_AE350_SOC_Top/u_RiscV_AE350_SOC/u_riscv_ae350_ddr3_top/u_ddr3_memory_ahb_top/u_ddr3/gw3_top/u_ddr_phy_top/u_dll" CLKIN_SEL=CLKIN5;
-INS_LOC "u_Gowin_PLL/PLL_inst" PLL_L[0]
+INS_LOC "u_Gowin_PLL_DDR/PLL_inst" PLL_L[0]
+INS_LOC "u_Gowin_PLL/PLL_inst" PLL_L[1]
 
 INS_LOC "u_Gowin_PLL_AE350/PLL_inst" PLL_R[0]

@@ -37,6 +37,12 @@ module ae350_soc_top
     inout [15:0] DDR3_DQ,
     inout [1:0] DDR3_DQS,
     inout [1:0] DDR3_DQS_N,
+    //SD
+    inout SD_CLK,
+    inout SD_CS,
+    inout SD_CHECKOUT,
+    inout SD_DATAOUT,
+    inout SD_DATAIN,
     // Ethernet
     output PHY_CLK,
     output PHY_RST_N,
@@ -88,20 +94,27 @@ Gowin_PLL_AE350 u_Gowin_PLL_AE350
     .enclk4(1'b1)
 );
 
+// Gowin_PLL instantiation
+Gowin_PLL_DDR u_Gowin_PLL_DDR
+(
+    .lock(DDR3_LOCK),
+    .clkout0(DDR3_CLK_IN),          // 50MHz
+    .clkout2(DDR3_MEMORY_CLK),      // 250MHz
+    .clkin(CLK),
+    .reset(1'b0),                   // Enforce
+    .enclk0(1'b1),
+    .enclk2(DDR3_STOP)
+);
 
 // Gowin_PLL instantiation
 Gowin_PLL u_Gowin_PLL
 (
-    .lock(DDR3_LOCK),
-    .clkout0(DDR3_CLK_IN),          // 50MHz
     .clkout1(GTX_CLK),              // 125MHz
-    .clkout2(DDR3_MEMORY_CLK),      // 250MHz
     .clkout3(ETH_CLK),              // 25MHz
     .clkin(CLK),
     .reset(1'b0),                   // Enforce
     .enclk0(1'b1),
     .enclk1(1'b1),
-    .enclk2(DDR3_STOP),
     .enclk3(1'b1)
 );
 
@@ -313,6 +326,16 @@ assign MDIO = (!mdio_oen) ? mdio_out : 1'bz;
 assign PHY_CLK = ETH_CLK;
 assign PHY_RST_N = RSTN;
 
+wire [31:0] gpio_pin;
+
+assign gpio_pin[0] = LED[0];
+assign gpio_pin[1] = LED[1];
+assign gpio_pin[2] = LED[2];
+assign gpio_pin[3] = KEY[0];
+assign gpio_pin[4] = KEY[1];
+assign gpio_pin[5] = KEY[2];
+assign gpio_pin[20] = SD_CS;
+
 
 // RiscV_AE350_SOC_Top instantiation
 RiscV_AE350_SOC_Top u_RiscV_AE350_SOC_Top
@@ -379,7 +402,6 @@ RiscV_AE350_SOC_Top u_RiscV_AE350_SOC_Top
     .UART1_OUT1N(),
     .UART1_OUT2N(),
 
-
     .UART2_TXD(UART2_TXD),
     .UART2_RTSN(),
     .UART2_RXD(UART2_RXD),
@@ -391,7 +413,14 @@ RiscV_AE350_SOC_Top u_RiscV_AE350_SOC_Top
     .UART2_OUT1N(),
     .UART2_OUT2N(),
 
-    .GPIO({KEY, LED}),
+    .SPI_HOLDN(), //inout SPI_HOLDN
+    .SPI_WPN(), //inout SPI_WPN
+    .SPI_CLK(SD_CLK), //inout SPI_CLK
+    .SPI_CSN(), //inout SPI_CSN
+    .SPI_MISO(SD_DATAOUT), //inout SPI_MISO
+    .SPI_MOSI(SD_DATAIN), //inout SPI_MOSI
+
+    .GPIO(gpio_pin),
 
     .CORE_CLK(CORE_CLK),
     .DDR_CLK(DDR_CLK),

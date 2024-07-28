@@ -10,6 +10,7 @@
         <File path="src/eth/gw_ahb_ethernet_top.v" type="file.verilog" enable="1"/>
         <File path="src/ip_core/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
         <File path="src/ip_core/gowin_pll_ae350/gowin_pll_ae350.v" type="file.verilog" enable="1"/>
+        <File path="src/ip_core/gowin_pll_ddr/gowin_pll_ddr.v" type="file.verilog" enable="1"/>
         <File path="src/ip_core/riscv_ae350_soc/riscv_ae350_soc.v" type="file.verilog" enable="1"/>
         <File path="src/ip_core/triple_speed_ethernet_mac/triple_speed_ethernet_mac.v" type="file.verilog" enable="1"/>
         <File path="src/key_debounce.v" type="file.verilog" enable="1"/>
